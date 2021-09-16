@@ -3,6 +3,7 @@ from pycounts import pycounts
 
 
 def test_count_words():
+    """Test word counting from a file."""
     expected = Counter(
         {
             "insanity": 1,

@@ -10,7 +10,19 @@ $ pip install pycounts
 
 ## Usage
 
-- TODO
+`pycounts` can be used to count the occurances of words in a text file as follows:
+
+```python
+import matplotlib.pyplot as plt
+
+from pycounts.pycounts import count_words
+from pycounts.plotting import plot_words
+
+file_path = "path to your text file"
+word_counts = count_words(file_path)
+fig = plot_words(word_counts)
+plt.show()
+```
 
 ## Contributing
 
