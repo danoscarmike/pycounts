@@ -5,11 +5,19 @@ from string import punctuation
 def load_text(file_name):
     """Reads text from file.
 
-    Args:
-        file_name (`str`): Path to file containing the subject text.
+    Parameters
+    ----------
+    file_name : string 
+        Path to file containing the subject text.
 
-    Returns:
-        `str`: Text as a string.
+    Returns
+    -------
+    string
+        File text as a string.
+    
+    Examples
+    --------
+    >>> load_text("text.txt")
     """
     with open(file_name, "r") as f:
         text = f.read()
@@ -17,15 +25,23 @@ def load_text(file_name):
 
 
 def clean_text(text):
-    """Converts text to lower case and removes common
-       punctuation marks.
+    '''Converts text to lower case and removes common punctuation marks.
 
-    Args:
-        text (`str`): Text string to clean.
+    Parameters
+    ----------
+    text : string
+        Text string to clean.
 
-    Returns:
-        `str`: Cleaned text.
-    """
+    Returns
+    -------
+    string
+        Cleaned text.
+
+    Examples
+    --------
+    >>> clean_text("Howdy, partner!")
+    'howdy partner'
+    '''
     text = text.lower()
     for p in punctuation:
         text = text.replace(p, "")
@@ -38,24 +54,19 @@ def count_words(file_name):
     Text is converted to lower case, and common punctuation
     is removed before counting.
 
-    Args:
-        file_name (`str`): Path to file containing the subject text.
+    Parameters
+    ----------
+    file_name : string
+        Path to file containing the subject text.
 
-    Returns:
-        `collections.Counter`: Counter of words in text file.
+    Returns
+    -------
+    `collections.Counter`
+        Counter of words in text file.
 
-    Example:
-        ```python
-        import matplotlib.pyplot as plt
-
-        from pycounts.pycounts import count_words
-        from pycounts.plotting import plot_words
-
-        file_path = "path to your text file"
-        word_counts = count_words(file_path)
-        fig = plot_words(word_counts)
-        plt.show()
-        ```
+    Examples
+    --------
+    >>> count_words("text.txt")
     """
     text = load_text(file_name)
     text = clean_text(text)
